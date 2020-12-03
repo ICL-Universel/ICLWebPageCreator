@@ -1,0 +1,132 @@
+﻿<Window x:Class="ICLWebPageCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ICLWebPageCreator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanResize" Background="CadetBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="White" BorderThickness="0,0,0,5">
+            <TextBlock Text="ICL Universel Web Page Creator" Margin="5" FontStyle="Italic" FontSize="20" HorizontalAlignment="Center"/>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Ribbon x:Name="ruban" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Ribbon.HelpPaneContent>
+                    <RibbonButton SmallImageSource="Ressources\help.png"/>
+                </Ribbon.HelpPaneContent>
+                <!--Ribbon.QuickAccessToolBar>
+                    <RibbonQuickAccessToolBar>
+                        <RibbonButton x:Name="nouvelle_page" SmallImageSource="Ressources\blankpage_enblanc_179.png"/>
+                        <RibbonSplitButton x:Name ="Undo" SmallImageSource="Ressources\blankpage_enblanc_179.png">
+                            <RibbonSplitMenuItem Header="Undo 1" />
+                            <RibbonSplitMenuItem Header="Undo 2" />
+                            <RibbonSplitMenuItem Header="Undo 3" />
+                        </RibbonSplitButton>
+                        <RibbonSplitButton x:Name="Redo" SmallImageSource="Ressources\blankpage_enblanc_179.png" >
+                            <RibbonSplitMenuItem Header="Redo 1" />
+                            <RibbonSplitMenuItem Header="Redo 2" />
+                        </RibbonSplitButton>
+                    </RibbonQuickAccessToolBar>
+                </Ribbon.QuickAccessToolBar-->
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu KeyTip="F" Visibility="Collapsed">
+                        <RibbonApplicationMenuItem Header="ParamètresParamètresParamètresParamètres" ImageSource="Ressources\blankpage_enblanc_179.png"/>
+                        <RibbonApplicationMenuItem Header="Quitter" ImageSource="Ressources\blankpage_enblanc_179.png"/>
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
+                <RibbonTab Header="Création">
+                    <RibbonGroup Header="Page">
+                        <RibbonButton x:Name="page_vierge" LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Page vierge" KeyTip="X" Click="page_vierge_Click"/>
+                        <RibbonButton x:Name="paragraphe_titre" LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Paragraphe avec titre" KeyTip="X" Click="paragraphe_titre_Click"/>
+                        <RibbonButton x:Name="paragraphe_sans_titre" LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Paragraphe sans titre" KeyTip="X" Click="paragraphe_sans_titre_Click"/>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Barre de menu">
+                        <RibbonButton x:Name="ajouter_barre_menu" LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Ajouter barre de menu" KeyTip="X" Click="ajouter_barre_menu_Click"/>
+                        <RibbonButton x:Name="ajouter_menu" LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Ajouter menu" KeyTip="X" Click="ajouter_menu_Click"/>
+                        <RibbonButton LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Positionner en haut" KeyTip="X" />
+                        <RibbonButton LargeImageSource="Ressources/blankpage_enblanc_179.png" Label="Positionner à gauche" KeyTip="X" />
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Format">
+                    <RibbonGroup>
+                        <RibbonMenuButton LargeImageSource="Ressources\paint_color_draw_11023.png" Label="Apparence" KeyTip="V">
+                            <RibbonMenuItem x:Name="theme1" ImageSource="Ressources\paint_color_draw_11023.png" Header="Theme 1" KeyTip="T" Click="theme1_Click"/>
+                            <RibbonMenuItem x:Name="theme2" ImageSource="Ressources\paint_color_draw_11023.png" Header="Theme 2" KeyTip="S" Click="theme2_Click"/>
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab Header="Aperçu">
+                    <RibbonGroup>
+                        <RibbonButton x:Name="afficher_apercu" LargeImageSource="Ressources/preview_open_icon_154961.png" Label="Aperçu" KeyTip="X" Click="afficher_apercu_Click"/>
+                    </RibbonGroup>
+                    
+                </RibbonTab>
+            </Ribbon>
+
+            
+
+            <!--Menu Grid.Column="0" Visibility="Collapsed">
+                <MenuItem Header="Création">
+                    <MenuItem Header="Pages">
+                        <MenuItem x:Name="menu_creer_page" Header="Nouvelle page" Click="menu_creer_page_Click"/>
+                        <MenuItem x:Name="menu_supprimer_page" Header="Supprimer" Click="menu_supprimer_page_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Paragraphes">
+                        <MenuItem x:Name="menu_creer_paragraphe_titre" Header="Paragraphe avec titre" Click="menu_creer_paragraphe_Click"/>
+                        <MenuItem x:Name="menu_creer_paragraphe_sans_titre" Header="Paragraphe sans titre" Click="menu_creer_paragraphe_sans_titre_Click"/>
+                        <MenuItem x:Name="menu_supprimer_paragraphe" Header="Supprimer" Click="menu_supprimer_paragraphe_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                
+                <Button x:Name="bouton_creer_page" Content="Créer une page" Margin="5" Padding="10" Width="100" Click="bouton_creer_page_Click"/-->
+            <!--/Menu-->
+            <!--Menu Grid.Column="1">
+                <MenuItem x:Name="menu_apercu" Header="Aperçu" Click="menu_apercu_Click"/>
+            </Menu-->
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!--ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="4*"/-->
+            </Grid.ColumnDefinitions>
+            <!--Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible" Visibility="Collapsed">
+                    <Grid x:Name="grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </ScrollViewer>
+            </Grid-->
+            <!--GridSplitter Grid.Column="0" Width="5" HorizontalAlignment="Stretch"/-->
+            <ScrollViewer Grid.Column="0" Margin="5">
+                <StackPanel x:Name="stack_conteneur" Background="Gray">
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</Window>

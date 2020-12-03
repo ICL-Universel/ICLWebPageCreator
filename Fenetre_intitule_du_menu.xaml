@@ -1,0 +1,26 @@
+﻿<Window x:Class="ICLWebPageCreator.Fenetre_intitule_du_menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ICLWebPageCreator"
+        mc:Ignorable="d"
+        Title="Fenetre_intitule_du_menu" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Intitulé du menu : " HorizontalAlignment="Right" Margin="5"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Lien vers la page : " HorizontalAlignment="Right" Margin="5"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="intitulé" Width="200" Margin="5"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="lien" Width="200" Margin="5"/>
+        </Grid>
+        <Button x:Name="bouton_ok" Content="Valider" HorizontalAlignment="Center" Width="100" Margin="5" Click="bouton_ok_Click"/>
+    </StackPanel>
+</Window>
